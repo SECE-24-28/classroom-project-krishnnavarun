@@ -1,0 +1,66 @@
+/*
+body{
+    background-image:linear-gradient(red,green,blue,yellow,pink,orange,violet);
+    height:100vh;
+}
+*/
+
+
+h1{
+    color: steelblue;
+}
+
+.class-selector{
+    color:red
+}
+
+#id-selector{
+    color:darkorange;
+}
+
+h2:hover{
+    color:green;
+}
+
+
+
+/* 0 - 1 - 1 => 11*/
+.parent h1{
+    color:purple
+}
+
+/* 0 - 0 - 2 => 2 */
+div h1{
+    color:black;
+}
+
+
+
+.sampleparent div h1{
+    color:red;
+}
+
+button{
+    color:black;
+    background-color:yellow;
+    margin:10px;
+    padding:10px 20px;
+    border-radius:50px;
+    border:5px solid black;
+    font-size:30px;
+}
+
+button:hover{
+    color:black;
+    background-color:violet;
+}
+
+
+.buttons{
+    text-align:center;
+}
+
+body{
+    text-align: center;
+    margin-top:150px;
+}

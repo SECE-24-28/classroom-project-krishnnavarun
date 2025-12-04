@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+    <div class = "text-center mt-50">
+        <form>
+            <div>
+                <label for = "name">Name:</label>
+                <input type = "text" id = "name" class = "border-2 m-5" placeholder="Enter your name"/>
+                <p class = "text-red-500" id = "errorMsg"></p>
+            </div>
+            <div>
+                <label for = "password">Password:</label>
+                <input type = "password" id = "password" class = "border-2 m-5" placeholder="Enter your Password"/>
+                <p class = "text-red-500" id = "PasswordErrorMsg"></p>
+            </div>
+            <button id = "submitBtn" class = "bg-orange-500 text-black p-3 border-2">Submit</button>
+        </form>
+    </div>
+    <script src = "script.js"></script>
+</body>
+</html>

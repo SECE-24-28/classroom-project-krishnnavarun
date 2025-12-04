@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>User Form</title>
+</head>
+<body class = "flex flex-row justify-center items-center m-5">
+    <div class="bg-[url('car.jpg')] bg-no-repeat bg-cover h-[170vh] w-[50vw]">
+
+
+        <div class="w-[300px] bg-white p-5 rounded-xl shadow-xl ml-60 mt-90">
+            <h1 class="text-blue-500 text-4xl font-bold mb-5">Login !!!</h1>
+
+            <form id="form" class="space-y-4">
+
+                <div>
+                    <label for="name" class="text-gray-700 text-xl font-bold">Name</label>
+                    <input type="text" id="name"
+                        class="w-full mt-1 px-3 py-2 border-1 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-violet-500" />
+                    <p class="text-red-500 text-sm mt-1" id="nameErrMsg"></p>
+                </div>
+
+                <div>
+                    <label for="email" class="text-gray-700 text-xl font-bold">Email</label>
+                    <input type="text" id="email"
+                        class="w-full mt-1 px-3 py-2 border-1 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-violet-500" />
+                    <p class="text-red-500 text-sm mt-1" id="emailErrMsg"></p>
+                </div>
+
+                <div>
+                    <label for="password" class = "text-gray-700 text-xl font-bold">Password</label>
+                    <input type = "password" id = "password" class = "border-1 border-gray-300 w-full mt-1 px-3 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-violet-500">
+                    <p id = "passwordErrorMsg" class = "text-red-500 text-sm mt-1"></p>
+                </div>
+
+
+                <button
+                    class="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-red-600">
+                    Submit
+                </button>
+
+            </form>
+        </div>
+
+        
+    </div>
+    <script src="form.js"></script>
+</body>
+
+</html>
