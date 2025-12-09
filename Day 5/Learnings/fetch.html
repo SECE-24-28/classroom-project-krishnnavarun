@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+   
+    <div class="min-h-screen bg-blue-300 flex flex-col items-center justify-center p-4 ">
+          <div class="text-xl flex flex-col items-center justify-center mt-[250px] border-5 border-solid ml-[500px] mr-[500px] p-5 bg-cyan-500 ">
+        <h1 class="font-bold text-underline py-3 ">COUNTER</h1>
+        <h3 id="num" class="text-yellow-300 font-bold transform 
+        transform-duration-500">0</h3>
+        <div class="flex flex-row">
+            <button class="bg-blue-500 hover:bg-yellow-300 m-2 p-3 border-3 border-solid border-black rounded-lg" id="btnm">-</button>
+            <button class="bg-blue-500 hover:bg-yellow-300 m-2 p-3 border-3 border-solid border-black rounded-lg" id="btnp">+</button>
+        </div>
+    </div>
+        <div class="w-full max-w-md bg-white/10 backdrop-blur-md rounded-2xl p-8 shadow-xl border border-white/10 mb-[400px]">
+            <h1 class="text-center font-bold">USER DETAILS</h1>
+    <div id="Details">
+    </div>
+    <script src="fetch.js"></script>
+    </div>
+    </div>
+</body>
+</html>

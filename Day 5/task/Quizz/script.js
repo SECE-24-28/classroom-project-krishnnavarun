@@ -18,6 +18,7 @@ const questions = [
 
         let currentQuestionIndex = 0;
         let selectedOption = null;
+        let score = 0;
 
         const questionText = document.getElementById("question-text");
         const questionCount = document.getElementById("question-count");
@@ -65,13 +66,23 @@ const questions = [
                 return alert("Select an option!");
             }
 
-            currentQuestionIndex++;
+            if(selectedOption === questions[currentQuestionIndex].correctIndex){
+                score++;
+                currentQuestionIndex++;
+            }
+            else{
+                currentQuestionIndex++;
+            }
+            
+
+            
 
             if (currentQuestionIndex < questions.length) {
                 loadQuestion();
             } else {
                 questionText.textContent = "Quiz Completed!";
-                optionsContainer.textContent = "";
+
+                optionsContainer.textContent = `Your Score: ${score}/${questions.length}`;
                 questionCount.textContent = "";
                 nextBtn.style.display = "none";
             }

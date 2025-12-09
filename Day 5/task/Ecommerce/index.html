@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Shop !</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+    <div class = "w-full bg-slate-100 p-1 font-sans">
+
+        <!-- about -->
+        <div class = "mx-15 my-4 flex justify-between items-center">
+            <h1 class = "text-black text-2xl font-bold font-sans">e-Shop <span class = "text-red-500">!</span></h1>
+            <div class = "flex">
+                <input type = "text" placeholder = "Search For Products......" class = "border-2 border-slate-300 rounded-lg h-10 w-70 px-5 text-lg p-2 focus:outline-none focus:ring-1 focus:ring-slate-500 mr-10"/>
+
+                <div class = "flex ml-8">
+                    <img src = "cart.png" alt = "cart" class = "w-8 h-8 inline-block mr-4"/>
+                    <div>
+                        <h1 class = "text-lg">Cart</h1>
+                        <h1 class = "text-md font-bold">$0</h1>
+                    </div>
+                </div>
+
+                <div class = "flex ml-10">
+                    <img src = "user.png" class = "h-10 mr-4"/>
+                    <div>
+                        <h1 class = "text-lg">User</h1>
+                        <h1 class = "text-md font-bold">Login</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- navbar -->
+        <div class = "w-full bg-orange-600 shadow-xl shadow-gray-400">
+            <div class="max-w-screen-2xl mx-5">
+            <div class = "flex justify-between p-5 text-white">
+                <div class = "flex space-x-20">
+                    <div class = "flex justify-center">
+                        <div class="w-10 h-6 flex justify-center items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="white" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                            </svg>
+                        </div>
+                        <h1 class = "text-md">All Categories !</h1>
+                    </div>
+
+                    <h1>Products !</h1>
+                    <h1>Blog !</h1>
+                    <h1>Contact !</h1>
+                </div>
+
+                <div class = "flex space-x-20">
+                   <h1 class = "text-md">Limited Sale !</h1>
+                   <h1 class = "text-md">Best Seller !</h1>
+                   <h1 class = "text-md">New Arrival !</h1>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- Popular Categories -->
+        <div class = "m-10">
+            <h1 class = "text-2xl font-bold">Popular Categories !</h1>
+            <div class = "my-5">
+                <div class = "flex space-x-4 space-y-4 flex-wrap">
+                    <div class = "bg-white p-5 w-[17vw]">
+                        <img src = "shirt2.jpg" class = "h-[30vh] w-[20vw]"/>
+                        <div class = "text-center my-3">
+                            <h1 class = "text-2xl">Check Overshirt</h1>
+                            <h1 class = "text-gray-900 text-xl font-bold">₹ 999 Only</h1>
+                        </div>
+                    </div>
+
+                    <div class = "bg-white p-5 w-[17vw]">
+                        <img src = "phant.jpg" class = "h-[30vh] w-[20vw]"/>
+                        <div class = "text-center my-3">
+                            <h1 class = "text-2xl">Casual Joggers</h1>
+                            <h1 class = "text-gray-900 text-xl font-bold">₹ 999 Only</h1>
+                        </div>
+                    </div>
+
+                    <div class = "bg-white p-5 w-[17vw]">
+                        <img src = "t-shirt1.jpg" class = "h-[30vh] w-[20vw]"/>
+                        <div class = "text-center my-3">
+                            <h1 class = "text-2xl">Polo Jersey</h1>
+                            <h1 class = "text-gray-900 text-xl font-bold">₹ 999 Only</h1>
+                        </div>
+                    </div>
+
+                    <div class = "bg-white p-5 w-[17vw]">
+                        <img src = "t-shirt3.jpg" class = "h-[30vh] w-[20vw]"/>
+                        <div class = "text-center my-3">
+                            <h1 class = "text-2xl">Tri-Color Jacket</h1>
+                            <h1 class = "text-gray-900 text-xl font-bold">₹ 999 Only</h1>
+                        </div>
+                    </div>
+
+                    <div class = "bg-white p-5 w-[17vw]">
+                        <img src = "t-shirt2.jpg" class = "h-[30vh] w-[20vw]"/>
+                        <div class = "text-center my-3">
+                            <h1 class = "text-2xl">Vintage Sweatshirt</h1>
+                            <h1 class = "text-gray-900 text-xl font-bold">₹ 999 Only</h1>
+                        </div>
+                    </div>
+
+                    <div class = "bg-white p-5 w-[17vw]">
+                        <img src = "shirt1.jpg" class = "h-[30vh] w-[20vw]"/>
+                        <div class = "text-center my-3">
+                            <h1 class = "text-2xl">Knit Shirt</h1>
+                            <h1 class = "text-gray-900 text-xl font-bold">₹ 999 Only</h1>
+                        </div>
+                    </div>
+
+                    <div class = "bg-white p-5 w-[17vw]">
+                        <img src = "phant-2.jpg" class = "h-[30vh] w-[20vw]"/>
+                        <div class = "text-center my-3">
+                            <h1 class = "text-2xl">Denim Jeans</h1>
+                            <h1 class = "text-gray-900 text-xl font-bold">₹ 999 Only</h1>
+                        </div>
+                    </div>
+
+                    <div class = "bg-white p-5 w-[17vw]">
+                        <img src = "shirt4.jpg" class = "h-[30vh] w-[20vw]"/>
+                        <div class = "text-center my-3">
+                            <h1 class = "text-2xl">Casual Shirt</h1>
+                            <h1 class = "text-gray-900 text-xl font-bold">₹ 999 Only</h1>
+                        </div>
+                    </div>
+
+                    <div class = "bg-white p-5 w-[17vw]">
+                        <img src = "BaggyPhant.png" class = "h-[30vh] w-[20vw]"/>
+                        <div class = "text-center my-3">
+                            <h1 class = "text-2xl">Jogger Pants</h1>
+                            <h1 class = "text-gray-900 text-xl font-bold">₹ 999 Only</h1>
+                        </div>
+                    </div>
+
+                    <div class = "bg-white p-5 w-[17vw] h-[46vh]">
+                        <img src = "jersey.jpg" class = "h-[30vh] w-[20vw]"/>
+                        <div class = "text-center my-3">
+                            <h1 class = "text-2xl">Sports Jersey</h1>
+                            <h1 class = "text-gray-900 text-xl font-bold">₹ 999 Only</h1>
+                        </div>
+                    </div>
+                </div>
+                <h1 class = "text-center mt-10 text-2xl text-red-500 font-bold">Will Be Updated Soon !</h1>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class = "flex bg-gray-900 p-10 flex-wrap">
+            <div class = "mx-5 flex-grow">
+                <h1 class = "text-gray-400 text-lg">ABOUT</h1>
+                <div class = "space-y-1 mt-5 text-white flex flex-col font-bold text-md">
+                    <a href = "#">Contact Us</a>
+                    <a href = "#">About Us</a>
+                    <a href = "#">Careers</a>
+                    <a href = "#">e-Shop Stories</a>
+                    <a href = "#">Corporate Information</a>
+                </div>
+            </div>
+
+            <div class = "mx-7 flex-grow">
+                <h1 class = "text-gray-400 text-lg">HELP</h1>
+                <div class = "space-y-1 mt-5 text-white flex flex-col font-bold text-md">
+                    <a href = "#">Payments</a>
+                    <a href = "#">Shipping</a>
+                    <a href = "#">Cancellation & Returns</a>
+                    <a href = "#">FAQ</a>
+                </div>
+            </div>
+
+            <div class = "mx-7 flex-grow">
+                <h1 class = "text-gray-400 text-lg">CONSUMER POLICY</h1>
+                <div class = "space-y-1 mt-5 text-white flex flex-col font-bold text-md">
+                    <a href = "#">Cancellation & Returns</a>
+                    <a href = "#">Shipping</a>
+                    <a href = "#">Cancellation & Returns</a>
+                    <a href = "#">FAQ</a>
+                </div>
+            </div>
+
+
+            <div class="h-50 w-px bg-gray-600 mx-5"></div>
+
+
+            <div class = "mx-7 flex-grow">
+                <h1 class = "text-gray-400 text-lg">MAIL US</h1>
+                <div class = "space-y-1 mt-5 text-white flex flex-col font-bold text-md">
+                    <a href = "#">easy@eshop.com</a>
+                    <a href = "#">E-Shop Private Limited</a>
+                    <a href = "#">Bengaluru, 560103</a>
+                    <a href = "#">Karnataka,India</a>
+                </div>
+            </div>
+
+            <div class = "mx-7 flex-grow">
+                <h1 class = "text-gray-400 text-lg">MAKE MONEY WITH US</h1>
+                <div class = "space-y-1 mt-5 text-white flex flex-col font-bold text-md">
+                    <a href = "#">Sell on e-shop</a>
+                    <a href = "#">Supply to e-shop</a>
+                    <a href = "#">Become an affiliate</a>
+                    <a href = "#">Advertise Your Products</a>
+                </div>
+            </div>
+
+        
+
+
+        </div>
+    </div>
+</body>
+</html>
