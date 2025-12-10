@@ -5,9 +5,9 @@ import { useState } from 'react'
 const App = () => {
 
   const [items, setItems] = useState([
-    { id: 4, title: "Polo Jersey", price: 799, qty: 1 },
-    { id: 2, title: "Jogger Pants", price: 999, qty: 1 },
-    { id: 3, title: "Tri-Color Jacket", price: 999, qty: 1 }
+    { id: 1, title: "Polo Jersey", price: 799, qty: 1 },
+    { id: 2, title: "Jogger Pants", price: 899, qty: 1 },
+    { id: 3, title: "Tri-Color Jacket", price: 1999, qty: 1 }
   ]);
 
   return (

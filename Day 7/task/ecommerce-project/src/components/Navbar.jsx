@@ -1,6 +1,3 @@
-import cart from "../assets/cart.png";
-import user from "../assets/user.png";
-
 const Navbar = () => {
     return(
         <>
@@ -16,6 +13,5 @@ const Navbar = () => {
         </>
     )
 };
-
 
 export default Navbar;

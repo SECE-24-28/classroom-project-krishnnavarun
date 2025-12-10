@@ -6,7 +6,7 @@ const TotalPrice = (props) => {
 
   const [mrp, setMrp] = useState(0);
   const [discount, setDiscount] = useState(0);
-  const [coupon, setCoupon] = useState(58);     
+  const [coupon, setCoupon] = useState(40);     
   const [protectFee, setProtectFee] = useState(19);
 
   const [totalAmount, setTotalAmount] = useState(0);
@@ -34,25 +34,21 @@ const TotalPrice = (props) => {
       <h1 className="text-2xl font-bold mb-5">PRICE DETAILS</h1>
       <hr className="my-3" />
 
-      {/* Price */}
       <div className="flex justify-between mb-2">
-        <span>Price ({items.length} items)</span>
-        <span className = "font-semibold">Rs {mrp}</span>
+        <span className = "text-xl">Price ({items.length} items)</span>
+        <span className = "font-semibold text-xl">Rs {mrp}</span>
       </div>
 
-      {/* Discount */}
       <div className="flex justify-between mb-2 text-green-600">
-        <span>Discount</span>
-        <span className = "font-semibold">- Rs {discount}</span>
+        <span className = "text-xl">Discount</span>
+        <span className = "font-semibold text-xl">- Rs {discount}</span>
       </div>
 
-      {/* Coupons */}
       <div className="flex justify-between mb-2 text-green-600">
-        <span>Coupons for you</span>
-        <span className = "font-semibold">- Rs {coupon}</span>
+        <span className = "text-xl">Coupons for you</span>
+        <span className = "font-semibold text-xl">- {coupon} %</span>
       </div>
 
-      {/* Protection Fee */}
       <div className="flex justify-between mb-2">
         <span>Protect Promise Fee</span>
         <span className = "font-semibold">Rs {protectFee}</span>
@@ -60,14 +56,12 @@ const TotalPrice = (props) => {
 
       <hr className="my-3" />
 
-      {/* Total */}
       <div className="flex justify-between text-xl font-bold mb-2">
         <span>Total Amount</span>
         <span>Rs {totalAmount}</span>
       </div>
 
-      {/* Savings */}
-      <p className="text-green-600 font-semibold">
+      <p className="text-green-600 text-xl font-semibold">
         You will save <span className = "font-semibold text-xl text-indigo-600">Rs {totalSavings}</span> on this order
       </p>
     </div>

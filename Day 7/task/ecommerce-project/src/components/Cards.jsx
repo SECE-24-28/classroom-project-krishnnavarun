@@ -10,7 +10,7 @@ const Cards = (props) => {
 
   const handleDecrementQty = (id) => {
     setItems(prevItems =>
-      prevItems.map(item =>
+      prevItems.map((item) =>
         item.id === id
           ? { ...item, qty: item.qty > 1 ? item.qty - 1 : 1 }
           : item
@@ -20,7 +20,7 @@ const Cards = (props) => {
 
   const handleIncrementQty = (id) => {
     setItems(prevItems =>
-      prevItems.map(item =>
+      prevItems.map((item) =>
         item.id === id
           ? { ...item, qty: item.qty + 1 }
           : item
@@ -46,25 +46,25 @@ const Cards = (props) => {
 
                   <div className="text-center my-3">
                     <h1 className="text-2xl">{title}</h1>
-                    <h1 className="text-gray-900 text-xl font-bold">
+                    <h1 className="text-gray-900 text-2xl font-bold">
                       ₹ {price} Only
                     </h1>
                   </div>
 
                   <div className="flex justify-center space-x-5">
                     <button
-                      className="p-2 border-2 rounded-xl w-10"
+                      className="px-4 py-2 border-3 text-3xl font-semibold rounded-xl text-center"
                       onClick = {() => handleDecrementQty(id)}
                     >
                       -
                     </button>
 
-                    <span className="p-2 border-2 rounded-xl w-10 text-center">
+                    <span className="px-8 py-2 border-3 text-2xl font-semibold border-black rounded-xl text-center">
                       {qty}
                     </span>
 
                     <button
-                      className="p-2 border-2 rounded-xl w-10"
+                      className="px-4 py-2 border-3 text-2xl font-semibold border-black rounded-xl text-center"
                       onClick={() => handleIncrementQty(id)}
                     >
                       +
