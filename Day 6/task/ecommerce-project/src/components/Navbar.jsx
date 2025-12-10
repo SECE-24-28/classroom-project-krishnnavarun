@@ -4,7 +4,7 @@ import user from "../assets/user.png";
 const Navbar = () => {
     return(
         <>
-            <div className = "mx-15 my-4 flex justify-between items-center">
+            <div className = "mx-15 py-4 flex justify-between items-center">
                 <h1 className = "text-black text-2xl font-bold font-sans">e-Shop <span className = "text-red-500">!</span></h1>
                 <div className = "flex">
                     <input type = "text" placeholder = "Search For Products......" className = "border-2 border-slate-300 rounded-lg h-10 w-70 px-5 text-lg p-2 focus:outline-none focus:ring-1 focus:ring-slate-500 mr-10"/>

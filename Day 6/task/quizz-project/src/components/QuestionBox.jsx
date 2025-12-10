@@ -15,9 +15,7 @@ const QuestionBox = (props) => {
                                 ? "bg-pink-600 text-white bg-pink-600"
                                 : "bg-violet-700 text-white hover:bg-pink-600"
                         }`}
-                    >
-                        {opt}
-                    </button>
+                    > {opt} </button>
                 ))}
             </div>
         </div>

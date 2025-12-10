@@ -2,6 +2,7 @@ import { useState } from "react";
 import QuestionBox from "./components/QuestionBox";
 import bg from "./assets/bg.jpg";
 import bg2 from "./assets/bg2.jpg";
+import { useEffect } from "react";
 
 const App = () => {
     const questions = [
@@ -26,6 +27,11 @@ const App = () => {
     const [selected, setSelected] = useState(null);
     const [score, setScore] = useState(0);
     const [completed, setCompleted] = useState(false);
+
+
+    useEffect(() => {
+        setSelected(null);
+    },[current]);
 
     function nextQuestion() {
         if (selected === null) {
