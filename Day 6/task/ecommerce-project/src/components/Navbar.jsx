@@ -43,7 +43,7 @@ const Navbar = () => {
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
                             </svg>
                         </div>
-                        <h1 className = "text-md">All Categories !</h1>
+                        <Link to ='/' className = "text-md">Home</Link>
                     </div>
 
                     <h1>Products !</h1>

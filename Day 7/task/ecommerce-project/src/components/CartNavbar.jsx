@@ -1,4 +1,4 @@
-const Navbar = () => {
+const CartNavbar = () => {
     return(
         <>
 
@@ -14,4 +14,4 @@ const Navbar = () => {
     )
 };
 
-export default Navbar;
+export default CartNavbar;

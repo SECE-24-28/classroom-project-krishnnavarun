@@ -1,4 +1,4 @@
-import Navbar from './components/Navbar'
+import CartNavbar from './components/CartNavbar'
 import Cards from './components/Cards'
 import { useState } from 'react'
 
