@@ -8,16 +8,73 @@ import tshirt1 from "../assets/t-shirt1.jpg";
 import tshirt2 from "../assets/t-shirt2.jpg";
 import tshirt3 from "../assets/t-shirt3.jpg";
 import phant2 from "../assets/phant-2.jpg";
+import { useState, useEffect } from "react";
 
 
 const Cards = () => {
+    const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch('http://localhost:3000/products');
+                const data = await response.json();
+                setProducts(data);
+            } catch (error) {
+                console.error('Error fetching products:', error);
+            }
+        };
+        fetchData();
+    }, []);
+
+    const handleAddToCart = async (product) => {
+        try {
+            const response = await fetch('http://localhost:3000/cart', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    productId: product.id,
+                    name: product.name,
+                    price: product.price,
+                    image: product.image,
+                    quantity: 1,
+                })
+            });
+            if (response.ok) {
+                alert('Product added to cart!');
+            }
+        } catch (error) {
+            console.error('Error adding to cart:', error);
+        }
+    };
+
     return (
         <>
         
             <div className = "m-10">
-            <h1 className = "text-2xl font-bold">Popular Categories !</h1>
+            <h1 className = "text-2xl font-bold">Popular Products !</h1>
             <div className = "my-5">
                 <div className = "flex space-x-4 space-y-4 flex-wrap">
+                    {products && products.length > 0 ? (
+                        products.map((product) => (
+                            <div key={product.id} className = "bg-white p-5 w-[17vw]">
+                                <img src = {product.image} className = "h-[30vh] w-[20vw]"/>
+                                <div className = "text-center my-3">
+                                    <h1 className = "text-2xl">{product.name}</h1>
+                                    <h1 className = "text-gray-900 text-xl font-bold">₹ {product.price} Only</h1>
+                                    <button 
+                                        onClick={() => handleAddToCart(product)}
+                                        className = "mt-3 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                                    >
+                                        Add to Cart
+                                    </button>
+                                </div>
+                            </div>
+                        ))
+                    ) : (
+                        <>
                     <div className = "bg-white p-5 w-[17vw]">
                         <img src = {shirt2} className = "h-[30vh] w-[20vw]"/>
                         <div className = "text-center my-3">
@@ -97,15 +154,17 @@ const Cards = () => {
                             <h1 className = "text-gray-900 text-xl font-bold">₹ 999 Only</h1>
                         </div>
                     </div>
+                    </>
+                    )}
                 </div>
-                <h1 className = "text-center mt-10 text-2xl text-red-500 font-bold">Will Be Updated Soon !</h1>
             </div>
             </div>
+        </>
+    )
+};
 
 
-
-
-
+export default Cards;
 
 
             
