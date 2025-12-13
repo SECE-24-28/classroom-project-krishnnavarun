@@ -31,7 +31,7 @@ const Products = () => {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    productId: product.id,
+                    productId: product._id,
                     name: product.name,
                     price: product.price,
                     image: product.image,
@@ -59,7 +59,7 @@ const Products = () => {
             <div className = "flex space-x-4 space-y-4 flex-wrap">
                 {products && products.length > 0 ? (
                     products.map((product) => (
-                        <div key={product.id} className = "bg-white p-5 w-[17vw]">
+                        <div key={product._id} className = "bg-white p-5 w-[17vw]">
                             <img src = {product.image} className = "h-[30vh] w-[20vw]"/>
                             <div className = "text-center my-3">
                                 <h1 className = "text-2xl">{product.name}</h1>

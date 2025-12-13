@@ -31,7 +31,7 @@ const Home = () => {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    productId: product.id,
+                    productId: product._id,
                     name: product.name,
                     price: product.price,
                     image: product.image,
@@ -57,7 +57,7 @@ const Home = () => {
                     
                     {products.length > 0 ? (
                         products.map((product) => (
-                            <div key={product.id} className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow overflow-hidden h-full flex flex-col">
+                            <div key={product._id} className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow overflow-hidden h-full flex flex-col">
                                 <div className="w-full h-[300px] overflow-hidden bg-gray-100">
                                     <img src={product.image} alt={product.name} className="h-full w-full hover:scale-105 object-cover transition-transform duration-300"/>
                                 </div>

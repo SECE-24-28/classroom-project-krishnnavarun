@@ -1,26 +1,25 @@
 [
   {
-    "id": 1,
-    "productId": 1,
-    "name": "T-shirt",
-    "price": 1399,
-    "image": "https://i.pinimg.com/736x/af/bc/9d/afbc9d8917ae03472e561a57b639ead4.jpg",
-    "quantity": 2
-  },
-  {
-    "id": 2,
-    "productId": 2,
-    "name": "Baggy Phant",
-    "price": 1499,
-    "image": "https://i.pinimg.com/1200x/c7/25/2d/c7252dfdab6b20ac0757b0819d3f2103.jpg",
-    "quantity": 1
-  },
-  {
     "id": 3,
     "productId": 3,
     "name": "Vintage Sweatshirt",
     "price": 1499,
     "image": "https://i.pinimg.com/736x/d4/fa/45/d4fa458d88e78d638ff3619fe6aa8d69.jpg",
+    "quantity": 1
+  },
+  {
+    "id": 4,
+    "name": "T-shirt",
+    "price": 1399,
+    "image": "https://i.pinimg.com/736x/af/bc/9d/afbc9d8917ae03472e561a57b639ead4.jpg",
+    "quantity": 1
+  },
+  {
+    "id": 5,
+    "productId": "693c37728e6aa8949eec5099",
+    "name": "T-shirt",
+    "price": 1399,
+    "image": "https://i.pinimg.com/736x/af/bc/9d/afbc9d8917ae03472e561a57b639ead4.jpg",
     "quantity": 1
   }
 ]

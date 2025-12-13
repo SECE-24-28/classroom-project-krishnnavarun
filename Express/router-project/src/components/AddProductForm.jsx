@@ -28,21 +28,30 @@ const AddProductForm = () => {
             return;
         }
 
+        const priceNum = parseFloat(price);
+        if (isNaN(priceNum) || priceNum <= 0) {
+            toast.error('Please enter a valid price');
+            return;
+        }
+
         try {
             setLoading(true);
-            const response = await axios.post('http://localhost:3000/products',{
-                name : name,
-                price : price,
+            const response = await axios.post('http://localhost:3000/products', {
+                name: name,
+                price: priceNum,
                 image: image
             });
             
+            // axios automatically parses JSON and stores it in response.data
             toast.success('Product added successfully!');
             setName('');
             setPrice('');
             setImage('');
         } catch (error) {
             console.error('Error:', error);
-            toast.error('Error adding product: ' + error.message);
+            // axios stores error response in error.response
+            const errorMessage = error.response?.data?.error || error.message;
+            toast.error('Error adding product: ' + errorMessage);
         } finally {
             setLoading(false);
         }
