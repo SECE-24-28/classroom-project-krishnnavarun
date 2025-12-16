@@ -13,7 +13,8 @@ const LoginForm = () => {
     const handleNameChange = (e) => {
         setusername(e.target.value);
     }
-    const handleSumbit = (e) => {
+
+    const handleSumbit = async(e) => {
         e.preventDefault();
         console.log(username, passwordRef.current.value)
         if(username==='user' && passwordRef.current.value==='user@123'){

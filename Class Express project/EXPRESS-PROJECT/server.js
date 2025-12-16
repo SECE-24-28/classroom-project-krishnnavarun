@@ -45,36 +45,20 @@
 // //         }
 // // ]
 
+require('dotenv').config(); //Load environment variables from .env file
 
 // //Node js Cocept of creating server with express    
 const express = require('express');
-
-// //for the file system
-const fs = require('fs');
-
-// //This express function creates a server that we can store in a variable app and use it to configure our server
 const app = express();
-
-const productsRouter = require('./routes/products')
-
-const blogPostRouter = require('./routes/BlogPost')
-
-const cartRouter = require('./routes/Cart')
-
-const connectDB = require('./config/ecommerceDb');
-
+const fs = require('fs');
+const connectDB = require('./config/db');
 connectDB();
 
-const productRouter = require('./routes/products'); 
 
-// const connectDB = require('./config/db');
+const studentsRouter = require('./routes/students')
+const authRouter = require('./routes/auth');
+const authMiddleware = require('./middlewares/authMiddleware');
 
-// connectDB();
-
-// const studentsRouter = require('./routes/students')
-
-//used to handle json data in request body and response body and act as a middleware
-app.use(express.json());
 
 
 // CORS middleware to allow requests from frontend
@@ -88,13 +72,15 @@ app.use((req, res, next) => {
     next();
 });
 
+app.use(express.json());
+app.use('/students',studentsRouter)
+app.use('/auth', authRouter);
 
-app.use('/products',productsRouter)
-app.use('/BlogPost',blogPostRouter)
-app.use('/cart',cartRouter)
-app.use('/products',productRouter)
-// app.use('/students',studentsRouter)
+app.get('/profiles', authMiddleware, (req,res) => {
+    res.status(200).json({message:"Profile data", user:req.userData});
+});
 
-app.listen(3000,() => {
-    console.log(`Server is run at http://localhost:3000`);
+
+app.listen(process.env.PORT, () => {
+    console.log(`Server is run at http://localhost:${process.env.PORT}`);
 });
