@@ -3,12 +3,17 @@ import { useNavigate } from "react-router";
 import { Link } from "react-router";
 import { toast } from "react-toastify";
 
-const LoginForm = () => {
+const RegisterForm = () => {
+    const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const passwordRef = useRef('');
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
+
+    const handleNameChange = (e) => {
+        setName(e.target.value);
+    }
 
     const handleEmailChange = (e) => {
         setEmail(e.target.value);
@@ -19,13 +24,20 @@ const LoginForm = () => {
         setError('');
         setLoading(true);
 
+        if (!name || !email || !passwordRef.current.value) {
+            setError('All fields are required');
+            setLoading(false);
+            return;
+        }
+
         try {
-            const response = await fetch('http://localhost:3000/api/auth/login', {
+            const response = await fetch('http://localhost:3000/api/auth/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
+                    name: name,
                     email: email,
                     password: passwordRef.current.value
                 })
@@ -34,43 +46,16 @@ const LoginForm = () => {
             const data = await response.json();
 
             if (response.ok) {
-                // Save token to localStorage
-                localStorage.setItem('token', data.token);
-                localStorage.setItem('user', JSON.stringify(data.user));
-                
-                // Migrate guest cart to server cart if it exists
-                const guestCart = JSON.parse(localStorage.getItem('guestCart') || '[]');
-                if (guestCart.length > 0) {
-                    for (const item of guestCart) {
-                        await fetch('http://localhost:3000/api/cart', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json',
-                                'Authorization': `Bearer ${data.token}`
-                            },
-                            body: JSON.stringify({
-                                productId: item.productId,
-                                name: item.name,
-                                price: item.price,
-                                image: item.image,
-                                quantity: item.quantity
-                            })
-                        });
-                    }
-                    // Clear guest cart after migrating
-                    localStorage.removeItem('guestCart');
-                }
-                
-                toast.success('Login successful!');
-                navigate('/');
+                toast.success('Registration successful! Please login');
+                navigate('/login');
             } else {
-                setError(data.error || 'Login failed');
-                toast.error(data.error || 'Login failed');
+                setError(data.error || 'Registration failed');
+                toast.error(data.error || 'Registration failed');
             }
         } catch (error) {
-            console.error('Login error:', error);
-            setError('Error logging in. Please try again.');
-            toast.error('Error logging in. Please try again.');
+            console.error('Register error:', error);
+            setError('Error registering. Please try again.');
+            toast.error('Error registering. Please try again.');
         } finally {
             setLoading(false);
         }
@@ -79,7 +64,14 @@ const LoginForm = () => {
     return (
         <>
             <div className="mt-10 w-[400px] flex flex-col justify-center items-center mx-auto mt-50 p-2 bg-white shadow-lg rounded-xl">
-                <h1 className="font-bold text-4xl mb-5 pt-5">Login</h1>
+                <h1 className="font-bold text-4xl mb-5 pt-5">Register</h1>
+                <input 
+                    type="text" 
+                    placeholder="Name" 
+                    className="border m-3 p-2 rounded-[5px] w-[90%]"
+                    value={name} 
+                    onChange={handleNameChange} 
+                />
                 <input 
                     type="email" 
                     placeholder="Email" 
@@ -99,13 +91,13 @@ const LoginForm = () => {
                     onClick={handleSubmit}
                     disabled={loading}
                 >
-                    {loading ? 'Logging in...' : 'Login'}
+                    {loading ? 'Registering...' : 'Register'}
                 </button>
-                <p className="text-gray-600 mb-3 text-sm">Don't have an account? <Link to="/register" className="text-blue-600 hover:underline">Register here</Link></p>
+                <p className="text-gray-600 mb-3 text-sm">Already have an account? <Link to="/login" className="text-blue-600 hover:underline">Login here</Link></p>
                 <Link to="/" className="text-blue-600 hover:underline mb-5">Home</Link>
             </div>
         </>
     )
 }
 
-export default LoginForm;
+export default RegisterForm;

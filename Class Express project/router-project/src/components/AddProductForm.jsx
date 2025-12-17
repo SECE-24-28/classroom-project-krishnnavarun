@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
-import axios from "axios";
 
 const AddProductForm = () => {
     const [name, setName] = useState('');
@@ -36,22 +35,34 @@ const AddProductForm = () => {
 
         try {
             setLoading(true);
-            const response = await axios.post('http://localhost:3000/products', {
-                name: name,
-                price: priceNum,
-                image: image
-            });
+            const token = localStorage.getItem('token');
             
-            // axios automatically parses JSON and stores it in response.data
-            toast.success('Product added successfully!');
-            setName('');
-            setPrice('');
-            setImage('');
+            const response = await fetch('http://localhost:3000/products', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({
+                    name: name,
+                    price: priceNum,
+                    image: image
+                })
+            });
+
+            const data = await response.json();
+            
+            if (response.ok) {
+                toast.success('Product added successfully!');
+                setName('');
+                setPrice('');
+                setImage('');
+            } else {
+                toast.error('Error adding product: ' + (data.error || 'Unknown error'));
+            }
         } catch (error) {
             console.error('Error:', error);
-            // axios stores error response in error.response
-            const errorMessage = error.response?.data?.error || error.message;
-            toast.error('Error adding product: ' + errorMessage);
+            toast.error('Error adding product: ' + error.message);
         } finally {
             setLoading(false);
         }
@@ -60,7 +71,7 @@ const AddProductForm = () => {
     return (
         <>
             <div className="m-10">
-                <h1 className="text-3xl font-bold mb-5 text-center">Admin Login</h1>
+                <h1 className="text-3xl font-bold mb-5 text-center">Add New Product</h1>
                 
                 <div className="bg-white p-8 rounded-lg w-full max-w-md shadow-md mx-auto mt-20">
                     <form onSubmit={handleSubmit}>

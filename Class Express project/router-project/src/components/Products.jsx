@@ -25,10 +25,36 @@ const Products = () => {
 
     const handleAddToCart = async (product) => {
         try {
-            const response = await fetch('http://localhost:3000/cart', {
+            const token = localStorage.getItem('token');
+            
+            // If user is not logged in, store in localStorage as guest cart
+            if (!token) {
+                const guestCart = JSON.parse(localStorage.getItem('guestCart') || '[]');
+                const existingItem = guestCart.find(item => item.productId === product._id);
+                
+                if (existingItem) {
+                    existingItem.quantity += 1;
+                } else {
+                    guestCart.push({
+                        productId: product._id,
+                        name: product.name,
+                        price: product.price,
+                        image: product.image,
+                        quantity: 1
+                    });
+                }
+                
+                localStorage.setItem('guestCart', JSON.stringify(guestCart));
+                toast.success('Product added to cart!');
+                return;
+            }
+            
+            // If user is logged in, add to server cart
+            const response = await fetch('http://localhost:3000/api/cart', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
                 },
                 body: JSON.stringify({
                     productId: product._id,
@@ -40,6 +66,9 @@ const Products = () => {
             });
             if (response.ok) {
                 toast.success('Product added to cart!');
+            } else {
+                const error = await response.json();
+                toast.error(error.error || 'Error adding to cart');
             }
         } catch (error) {
             console.error('Error adding to cart:', error);

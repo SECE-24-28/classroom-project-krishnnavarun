@@ -34,7 +34,7 @@ app.get('/test', (req, res) => {
 // Routes
 app.use('/api/auth', authRouter);
 app.use('/products', productsRouter);
-app.use('/cart', cartRouter);
+app.use('/api/cart', cartRouter);
 
 // 404 Error handling
 app.use((req, res) => {
